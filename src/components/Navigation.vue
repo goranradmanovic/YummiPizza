@@ -7,7 +7,7 @@
       b-collapse#nav-collapse(is-nav='')
         b-navbar-nav
           b-nav-item(to='/') Home
-          b-nav-item(to='/menu') Menu
+          b-nav-item(to='/menu') Pizza Menu
 
         // Right aligned nav items
         b-navbar-nav.ml-auto
