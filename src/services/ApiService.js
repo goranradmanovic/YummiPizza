@@ -1,7 +1,7 @@
 import axios from "axios";
 
 let production = true,
-    baseUrl = (production) ? 'http://yummipizzashopapi.herokuapp.com' : 'http://127.0.0.1:8000';
+    baseUrl = (production) ? 'https://yummipizzashopapi.herokuapp.com' : 'http://127.0.0.1:8000';
 
 let post = (url, data) => {
   return axios.post(url, data, {
