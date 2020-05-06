@@ -1,6 +1,7 @@
 import axios from "axios";
 
-let baseUrl = true ? 'http://yummipizzashopapi.herokuapp.com/' : 'http://127.0.0.1:8000';
+let production = true,
+    baseUrl = (production) ? 'http://yummipizzashopapi.herokuapp.com/' : 'http://127.0.0.1:8000';
 
 let post = (url, data) => {
   return axios.post(url, data, {
@@ -63,6 +64,6 @@ export default {
   getExchangeRates(urlAPI) {
     return fetch(urlAPI).then(response => response.json())
       .then(data => {return data})
-      .catch(error => console.log(error));
+      .catch(error => {return error});
   }
 };
