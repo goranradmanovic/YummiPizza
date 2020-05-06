@@ -1,0 +1,35 @@
+.checkbox_conatiner
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-evenly
+
+.checkbox_conatiner_label
+  transition: box-shadow 400ms ease-in-out
+  cursor: pointer
+
+  &:hover
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, .15)
+
+label > .card
+   transition: border-color 400ms ease-in-out
+
+input[type=checkbox]:checked + label > .card
+  border-color: #28a745
+
+.plus-btn:disabled, .minus-btn:disabled
+  cursor: no-drop
+
+.form-control.not-valid:invalid
+    border-color: #dc3545
+
+.form-control.not-valid:invalid~.invalid-feedback
+  display: block
+
+.form-control:valid
+    border-color: #28a745
+
+.form-control:valid~.valid-feedback
+    display: block
+
+.order-info
+  font-size: 1em
