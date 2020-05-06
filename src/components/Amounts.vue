@@ -4,16 +4,18 @@
       button.btn.btn-outline-info.plus-btn(type='button' @click='increaseAmount' :class='"amount-button-" + parentId' :disabled='disabledButton') &plus;
     input.form-control.text-center.amountField(type='text' readonly :id='"parent-" + parentId' :value='amount' placeholder='Enter your amount' aria-label='Enter your amount')
     .input-group-append
-      button.btn.btn-outline-info.minus-btn(type='button' @click='decreaseAmount' :class='"amount-button-" + parentId'  :disabled='disabledButton') &minus;
+      button.btn.btn-outline-info.minus-btn(type='button' @click='decreaseAmount' :class='"amount-button-" + parentId' :disabled='disabledButton') &minus;
 </template>
 
 <script>
+import EventBus from '@/helpers/event-bus';
+
 export default {
   name: 'Amounts',
   props: ['disabledButton', 'parentId'],
   data() {
     return {
-      amount: null
+      amount: 1
     }
   },
 
@@ -31,7 +33,17 @@ export default {
       }
 
       this.amount--;
+    },
+
+    resetAmount() {
+      EventBus.$on('reset-amount', payLoad => {
+        this.amount = payLoad;
+      });
     }
+  },
+
+  mounted() {
+    this.resetAmount();
   }
 }
 </script>
