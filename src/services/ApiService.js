@@ -1,8 +1,6 @@
 import axios from "axios";
 
-let development = 'http://127.0.0.1:8000',
-    production = 'http://yummipizzashopapi.herokuapp.com/',
-    baseUrl = production;
+let baseUrl = true ? 'http://yummipizzashopapi.herokuapp.com/' : 'http://127.0.0.1:8000';
 
 let post = (url, data) => {
   return axios.post(url, data, {
