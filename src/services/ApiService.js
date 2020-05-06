@@ -45,7 +45,7 @@ export default {
   },
 
   postPizzaOrderData(data) {
-    return post(`${baseUrl}/api/v1/blocks`, data);
+    return post(`${baseUrl}/api/orders`, data);
   },
 
   getSinglePizza(id) {
@@ -54,5 +54,15 @@ export default {
 
   getMenuItems() {
     return get(`${baseUrl}/api/menus`);
+  },
+
+  getAllOrders() {
+    return get(`${baseUrl}/api/orders`);
+  },
+
+  getExchangeRates(urlAPI) {
+    return fetch(urlAPI).then(response => response.json())
+      .then(data => {return data})
+      .catch(error => console.log(error));
   }
 };
